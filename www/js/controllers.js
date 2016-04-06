@@ -8,6 +8,7 @@ angular.module('app.controllers', [])
     $scope.searchMovieDB = function() {
         Movies.list($scope.movie.name, function(movies) {
             $scope.movies = movies;
+            angular.element("#boton").hide(false);
         });
   };
 })

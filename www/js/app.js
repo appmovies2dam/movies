@@ -23,6 +23,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
 .factory('Movies', function($http) {
   var cachedData;
+  var direccion;
 
   function getData(moviename, callback) {
 
@@ -31,6 +32,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       name = '&query=' + encodeURI(moviename),
       key = '&api_key=5fbddf6b517048e25bc3ac1bbeafb919';
       language='&language=es';
+      
+      direccion=url + mode + key + language + name;
 
     $http.get(url + mode + key + language + name).success(function(data) {
 

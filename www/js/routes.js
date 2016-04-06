@@ -67,7 +67,7 @@ angular.module('app.routes', [])
   })
   
   .state('menu.noticias', {
-      url: '/ayuda',
+      url: '/noticias',
       views: {
           'side-menu21':{
               templateUrl: 'templates/noticias.html',
