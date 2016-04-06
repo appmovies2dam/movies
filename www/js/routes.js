@@ -75,6 +75,12 @@ angular.module('app.routes', [])
             }
         }
   })
+  
+  .state('detalle', {
+      url: '/detalle/:movieid',
+      templateUrl: 'templates/detallePelicula.html',
+      controller: 'detalleCtrl'
+  })
 
 $urlRouterProvider.otherwise('/side-menu21/inicio')
 

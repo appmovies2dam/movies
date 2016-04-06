@@ -31,4 +31,13 @@ angular.module('app.controllers', [])
 .controller('noticiasCtrl',function($scope){
     
 })
+
+.controller('detalleCtrl',function($scope, $http, $stateParams, Movies,$ionicHistory){
+    Movies.find($stateParams.movieid, function(movie) {
+    $scope.movie = movie;
+  });
+  $scope.volver = function(){
+    $ionicHistory.goBack();
+  }
+})
  
