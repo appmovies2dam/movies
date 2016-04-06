@@ -65,6 +65,16 @@ angular.module('app.routes', [])
       }
     }
   })
+  
+  .state('menu.noticias', {
+      url: '/ayuda',
+      views: {
+          'side-menu21':{
+              templateUrl: 'templates/noticias.html',
+              controller: 'noticiasCtrl'
+            }
+        }
+  })
 
 $urlRouterProvider.otherwise('/side-menu21/inicio')
 

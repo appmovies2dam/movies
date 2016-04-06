@@ -20,3 +20,36 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
 })
+
+.factory('Movies', function($http) {
+  var cachedData;
+
+  function getData(moviename, callback) {
+
+    var url = 'http://api.themoviedb.org/3/',
+      mode = 'search/movie?query=',
+      name = '&query=' + encodeURI(moviename),
+      key = '&api_key=5fbddf6b517048e25bc3ac1bbeafb919';
+      language='&language=es';
+
+    $http.get(url + mode + key + language + name).success(function(data) {
+
+      console.log(JSON.stringify(data));
+
+      cachedData = data.results;
+      callback(data.results);
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      console.log(name);
+      var movie = cachedData.filter(function(entry) {
+        return entry.id == name;
+      })[0];
+      callback(movie);
+    }
+  };
+
+})
