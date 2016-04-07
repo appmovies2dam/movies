@@ -23,7 +23,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
 .factory('Movies', function($http) {
   var cachedData;
-  var direccion;
+  //var direccion;
+  //var pagTot;
+  //var pagAct;
 
   function getData(moviename, callback) {
 
@@ -33,19 +35,33 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       key = '&api_key=5fbddf6b517048e25bc3ac1bbeafb919';
       language='&language=es';
       
-      direccion=url + mode + key + language + name;
+      //direccion=url + mode + key + language + name;
 
-    $http.get(url + mode + key + language + name).success(function(data) {
+      $http.get(url + mode + key + language + name).success(function(data) {
 
       console.log(JSON.stringify(data));
-
+      
+      //pagTot=data.total_pages;
+      //pagAct=1;
+      
       cachedData = data.results;
       callback(data.results);
     });
   }
+  
+  /*function pagSig(callback) {
+      pagAct++;
+      console.log("-----------"+pagAct); 
+      $http.get(direccion+pagAct).success(function(data){
+          console.log(JSON.stringify(data));
+          cachedData = data.results;
+          callback(data.results);
+      });
+  }*/
 
   return {
     list: getData,
+    //sig: pagSig,
     find: function(name, callback) {
       console.log(name);
       var movie = cachedData.filter(function(entry) {

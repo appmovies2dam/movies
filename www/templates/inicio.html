@@ -4,17 +4,21 @@
             <label class="item item-input" name="buscar">
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="search" placeholder="Buscar pelicula,actor..." ng-model="movie.name" />
+
             </label>
         </form>
+        <button ng-hide="movies==null" class="button button-block button-positive" ng-click="borrar()">
+            Borrar resultados
+        </button>
         <ion-list>
-            <ion-item class="list card" ng-repeat="movie in movies">
-                <a href="#/detalle/{{movie.id}}" class="item item-thumbnail-left">
+            <ion-item id="lista" ng-hide="movies==null" class="list card">
+                <a ng-repeat="movie in movies" href="#/detalle/{{movie.id}}" class="item item-thumbnail-left">
                     <img ng-src="http://image.tmdb.org/t/p/w92{{movie.poster_path}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
                     <h2>{{movie.original_title}}</h2>
                     <h4>{{movie.release_date}}</h4>
                 </a>
             </ion-item>
-            <button ng-show="false" id="boton" class="button-clear" ng-click="paginaSiguiente()">Siguiente <i class = "icon ion-arrow-right-c"></i></button>
+            <!--<button ng-hide="movie.name==''" id="boton" class="button-clear" ng-click="paginaSiguiente()">Siguiente <i class = "icon ion-arrow-right-c"></i></button>-->
         </ion-list>
     </ion-content>
 </ion-view>
