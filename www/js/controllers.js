@@ -17,9 +17,9 @@ angular.module('app.controllers', [])
         });
     };*/
     
-    /*$scope.borrar = function() {
-        
-    }*/
+    $scope.borrar = function() {
+        angular.element(document.querySelector('#lista')).remove();
+    }
     
 })
    
