@@ -72,3 +72,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   };
 
 })
+/*
+NO BORRAR
+http://api.themoviedb.org/3/movie/now_playing?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/movie/idVideo/videos?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/discover/movie?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/genre/movie/list?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/movie/popular?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/movie/top_rated?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/movie/upcoming?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
+http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&timezone=Europe/Madrid&language=es&query=fast
+http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&timezone=es&language=es&query=fast
+*/
