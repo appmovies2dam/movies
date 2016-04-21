@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
     };*/
     
     $scope.borrar = function() {
-        angular.element(document.querySelector('#lista')).remove();
+        $scope.movies=null;
     }
     
 })
@@ -46,6 +46,7 @@ angular.module('app.controllers', [])
 .controller('detalleCtrl',function($scope, $http, $stateParams, Movies,$ionicHistory){
     Movies.find($stateParams.movieid, function(movie) {
     $scope.movie = movie;
+    console.log(movie.original_title);
   });
   $scope.volver = function(){
     $ionicHistory.goBack();
