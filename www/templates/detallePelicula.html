@@ -9,7 +9,7 @@
     </div>
 
     <div class="item item-body">
-        <img class="full-image" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" />
+        <img class="full-image" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';"/>
         <p>{{movie.overview}}</p>
         <p>
             <a href="#" class="subdued">Puntuacion media: <strong>{{movie.vote_average}}</strong></a>
