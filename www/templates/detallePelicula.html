@@ -1,6 +1,8 @@
 <ion-view title="Detalles pelicula">
 <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <button class="button-clear" ng-click="volver()"><i class = "icon ion-arrow-left-c"></i> Volver a la lista</button>
+  <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="volver()">
+    <b>Volver a la lista</b>
+  </a>
   <div class="list card">
     <div class="item item-avatar">
       <img ng-src="http://image.tmdb.org/t/p/w92{{movie.poster_path}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
@@ -12,9 +14,21 @@
         <img class="full-image" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';"/>
         <p>{{movie.overview}}</p>
         <p>
-            <a href="#" class="subdued">Puntuacion media: <strong>{{movie.vote_average}}</strong></a>
-            <a href="#" class="subdued">Votos totales: <strong>{{movie.vote_count}}</strong></a>  
+            <a class="subdued">Puntuacion media: <strong>{{movie.vote_average}}</strong></a>
+            <a class="subdued">Votos totales: <strong>{{movie.vote_count}}</strong></a>  
         </p>
+        <p>
+          <a ng-show="key==null" class="item item-icon-left assertive">
+            <i class="icon ion-close-round"></i><b>No hay trailers disponibles</b>
+          </a>
+          <a ng-hide="key==null" class="item item-icon-left assertive">
+            <i class="icon ion-social-youtube-outline"></i><b>Trailers disponibles</b>
+          </a>
+        </p>
+        <p ng-hide="key==null">
+          <iframe id="ytplayer" type="text/html"  ng-src="{{key}}" frameborder="0"/>
+        </p>
+        
     </div>
   </div>
 </ion-content>

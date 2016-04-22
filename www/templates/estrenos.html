@@ -1,3 +1,13 @@
-<ion-view title="Estrenos">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+<ion-view title="Estrenos" ng-init="buscarEstrenos()">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list id="listaEstrenos">
+            <ion-item  ng-hide="movies==null" class="list card">
+                <a ng-repeat="movie in movies" href="#/detalle/{{movie.id}}" class="item item-thumbnail-left">
+                    <img ng-src="http://image.tmdb.org/t/p/w92{{movie.poster_path}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
+                    <h2>{{movie.original_title}}</h2>
+                    <h4>{{movie.release_date}}</h4>
+                </a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

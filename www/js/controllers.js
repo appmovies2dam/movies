@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
-  
-.controller('inicioCtrl', function($scope,$http,Movies) {
+  //verificar errores en la consola y establecer if else
+.controller('inicioCtrl', function($scope,Movies) {
     $scope.movie = {
         name: ''
     }
@@ -23,8 +23,12 @@ angular.module('app.controllers', [])
     
 })
    
-.controller('estrenosCtrl', function($scope) {
-
+.controller('estrenosCtrl', function($scope,Movies) {
+    $scope.buscarEstrenos = function() {
+        Movies.estr(function(movies) {
+            $scope.movies = movies;
+        });
+    }
 })
    
 .controller('cinesCercanosCtrl', function($scope) {
@@ -43,13 +47,25 @@ angular.module('app.controllers', [])
     
 })
 
-.controller('detalleCtrl',function($scope, $http, $stateParams, Movies,$ionicHistory){
+.controller('detalleCtrl',function($scope, $stateParams, Movies, $ionicHistory,$sce){
     Movies.find($stateParams.movieid, function(movie) {
     $scope.movie = movie;
     console.log(movie.original_title);
   });
+  
+  Movies.trai($stateParams.movieid, function(asd) {
+      if(asd==null){
+          $scope.key=null;
+          console.log('asd nulo')
+      }
+      else{
+          $scope.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+asd.key);
+      }
+      
+    });
+  
   $scope.volver = function(){
     $ionicHistory.goBack();
   }
+  
 })
- 

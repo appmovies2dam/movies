@@ -30,9 +30,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   function getData(moviename, callback) {
 
     var url = 'http://api.themoviedb.org/3/',
-      mode = 'search/movie?query=',
+      mode = 'search/movie',
       name = '&query=' + encodeURI(moviename),
-      key = '&api_key=5fbddf6b517048e25bc3ac1bbeafb919';
+      key = '?api_key=5fbddf6b517048e25bc3ac1bbeafb919';
       language='&language=es';
       
       //direccion=url + mode + key + language + name;
@@ -49,6 +49,36 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     });
   }
   
+  function getEstrenos(callback){
+    var url = 'http://api.themoviedb.org/3/',
+      mode = 'movie/now_playing',
+      key = '?api_key=5fbddf6b517048e25bc3ac1bbeafb919';
+      language='&language=es';
+      
+      $http.get(url + mode + key + language).success(function(data) {
+
+      console.log(JSON.stringify(data));
+      
+      cachedData = data.results;
+      callback(data.results);
+    });
+  }
+  
+  function getTrailers(idVideo,callback){
+    var url = 'http://api.themoviedb.org/3/',
+      mode = 'movie/'+idVideo+'/videos',
+      key = '?api_key=5fbddf6b517048e25bc3ac1bbeafb919';
+      language='&language=es';
+      
+      $http.get(url + mode + key + language).success(function(data) {
+
+      console.log(JSON.stringify(data));
+      
+      //cachedData = data.results;
+      callback(data.results[0]);
+    });
+  }
+  
   /*function pagSig(callback) {
       pagAct++;
       console.log("-----------"+pagAct); 
@@ -61,6 +91,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
   return {
     list: getData,
+    estr: getEstrenos,
+    trai: getTrailers,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);
