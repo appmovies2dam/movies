@@ -17,7 +17,7 @@ angular.module('app.controllers', [])
         });
     };*/
     
-    $scope.borrar = function() {
+    $scope.borrar = function(n) {
         $scope.movies=null;
     }
     
@@ -35,8 +35,26 @@ angular.module('app.controllers', [])
 
 })
       
-.controller('trailersCtrl', function($scope) {
+.controller('trailersCtrl', function($scope,Movies,$sce) {
+    $scope.busq = {
+        name: ''
+    }
 
+    $scope.busTra = function() {
+        Movies.you($scope.busq.name, function(yt) {
+            for (var key in yt) {
+              if (yt.hasOwnProperty(key)) {
+                  var element = yt[key];
+                  element.id.videoId=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+element.id.videoId);
+              }
+          }
+            $scope.you = yt;
+        });
+    }
+    
+    $scope.borrar = function(n) {
+        $scope.you=null;
+    }
 })
    
 .controller('ayudaCtrl', function($scope) {
@@ -62,10 +80,10 @@ angular.module('app.controllers', [])
               if (asd.hasOwnProperty(key)) {
                   var element = asd[key];
                   element.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+element.key);
+                  //element.key=$sce.trustAsResourceUrl('https://www.youtube.com/v/'+element.key);
               }
           }
           $scope.asdf=asd;
-          //$scope.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+asd.key);
       }
     });
   

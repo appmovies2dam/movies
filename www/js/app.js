@@ -79,6 +79,15 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     });
   }
   
+  function buscarTrailers(busq,callback) {
+    //muestra solamente 10 resultados
+    var url='https://www.googleapis.com/youtube/v3/search?part=id&maxResults=10&q=trailer%20+'+busq+'&regionCode=es&type=video&videoType=any&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4';
+    $http.get(url).success(function(data) {
+      console.log(JSON.stringify(data));
+      callback(data.items);
+    });
+  }
+  
   /*function pagSig(callback) {
       pagAct++;
       console.log("-----------"+pagAct); 
@@ -93,6 +102,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     list: getData,
     estr: getEstrenos,
     trai: getTrailers,
+    you: buscarTrailers,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);
@@ -117,4 +127,8 @@ http://api.themoviedb.org/3/movie/upcoming?api_key=5fbddf6b517048e25bc3ac1bbeafb
 http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
 http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&timezone=Europe/Madrid&language=es&query=fast
 http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&timezone=es&language=es&query=fast
+---------------------------------------------------------------------------------------------------------------------------
+https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=fast&type=video&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4
+https://www.googleapis.com/youtube/v3/search?part=id&maxResults=10&q=fast&type=video&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4
+https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=fast&regionCode=es&type=video&videoType=movie&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4
 */

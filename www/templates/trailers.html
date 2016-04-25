@@ -1,3 +1,23 @@
 <ion-view title="Trailers">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <form class="list" ng-submit="busTra()">
+            <label class="item item-input" name="buscar">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input id="busqueda" type="search" placeholder="Buscar pelicula,actor..." ng-model="busq.name" />
+
+            </label>
+        </form>
+        <button ng-hide="you==null" class="button button-block button-positive" ng-click="borrar()">
+            Borrar busqueda
+        </button>
+        <ion-list id="lista">
+            <ion-item  ng-hide="you==null" class="list card">
+                <p>
+                    <a ng-repeat="yo in you" class="item">
+                        <iframe id="ytplayer" type="text/html"  ng-src="{{yo.id.videoId}}" frameborder="0"/>
+                    </a>
+                </p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
