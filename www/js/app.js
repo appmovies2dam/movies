@@ -75,7 +75,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       console.log(JSON.stringify(data));
       
       //cachedData = data.results;
-      callback(data.results[0]);
+      callback(data.results);
     });
   }
   

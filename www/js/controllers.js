@@ -54,14 +54,19 @@ angular.module('app.controllers', [])
   });
   
   Movies.trai($stateParams.movieid, function(asd) {
-      if(asd==null){
-          $scope.key=null;
-          console.log('asd nulo')
+      if(asd.length==0){
+          $scope.asdf=null;
       }
       else{
-          $scope.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+asd.key);
+          for (var key in asd) {
+              if (asd.hasOwnProperty(key)) {
+                  var element = asd[key];
+                  element.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+element.key);
+              }
+          }
+          $scope.asdf=asd;
+          //$scope.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+asd.key);
       }
-      
     });
   
   $scope.volver = function(){

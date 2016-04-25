@@ -18,15 +18,15 @@
             <a class="subdued">Votos totales: <strong>{{movie.vote_count}}</strong></a>  
         </p>
         <p>
-          <a ng-show="key==null" class="item item-icon-left assertive">
+          <a ng-show="asdf==null" class="item item-icon-left assertive">
             <i class="icon ion-close-round"></i><b>No hay trailers disponibles</b>
           </a>
-          <a ng-hide="key==null" class="item item-icon-left assertive">
+          <a ng-hide="asdf==null" class="item item-icon-left assertive">
             <i class="icon ion-social-youtube-outline"></i><b>Trailers disponibles</b>
           </a>
         </p>
-        <p ng-hide="key==null">
-          <iframe id="ytplayer" type="text/html"  ng-src="{{key}}" frameborder="0"/>
+        <p ng-hide="asdf==null">
+          <iframe ng-repeat="asd in asdf" id="ytplayer" type="text/html"  ng-src="{{asd.key}}" frameborder="0"/>
         </p>
         
     </div>
