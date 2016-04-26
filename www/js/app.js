@@ -114,8 +114,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   };
 
 })
-/*
-NO BORRAR
+/*NO BORRAR
+--------------------------------------------------------------------------------------------------------------------------
+themoviedb para buscar peliculas,etc.
 http://api.themoviedb.org/3/movie/now_playing?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
 http://api.themoviedb.org/3/movie/idVideo?api_key=5fbddf6b517048e25bc3ac1bbeafb919&append_to_response=videos&language=es&query=fast
 http://api.themoviedb.org/3/movie/idVideo/videos?api_key=5fbddf6b517048e25bc3ac1bbeafb919&language=es&query=fast
@@ -128,7 +129,17 @@ http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeaf
 http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&timezone=Europe/Madrid&language=es&query=fast
 http://api.themoviedb.org/3/tv/airing_today?api_key=5fbddf6b517048e25bc3ac1bbeafb919&timezone=es&language=es&query=fast
 ---------------------------------------------------------------------------------------------------------------------------
+youtube para buscar trailers
 https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=fast&type=video&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4
 https://www.googleapis.com/youtube/v3/search?part=id&maxResults=10&q=fast&type=video&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4
 https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=fast&regionCode=es&type=video&videoType=movie&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4
+---------------------------------------------------------------------------------------------------------------------------
+tviso para noticias
+secret zaWV7a7pbtwaChbVAqaC
+app id 3488
+auth token dcccdb2ccec9e552cb62ecb576004a9c
+https://developers.tviso.com/
+https://api.tviso.com/news/last/movies?auth_token=dcccdb2ccec9e552cb62ecb576004a9c
+https://api.tviso.com/news/last/movies?auth_token=dcccdb2ccec9e552cb62ecb576004a9c&page=2
+https://api.tviso.com/news/item?auth_token=dcccdb2ccec9e552cb62ecb576004a9c&id=56d40239060f0e922f8b4567
 */
