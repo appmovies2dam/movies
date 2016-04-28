@@ -1,3 +1,14 @@
-<ion-view title="Noticias">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+<ion-view title="Noticias" ng-init="buscarNoticias()">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list id="listaNoticias">
+            <ion-item  ng-hide="noticias==null" class="list card">
+                <!--href="#/detalle/{{noticia.idn}}"-->
+                <a ng-repeat="noticia in noticias" on-swipe-left="swipe($index)" class="item item-thumbnail-left">
+                    <img ng-src="https://img.tviso.com/{{noticia.image.country}}/notice/w150{{noticia.image.notice}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
+                    <h2>{{noticia.title}}</h2>
+                    <p>{{noticia.short_text}}</p>
+                </a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

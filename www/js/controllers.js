@@ -61,8 +61,15 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('noticiasCtrl',function($scope){
-    
+.controller('noticiasCtrl',function($scope,Movies){
+    $scope.buscarNoticias = function() {
+        Movies.not(function(data) {
+            $scope.noticias = data;
+        });
+    }
+    $scope.swipe=function(index){
+        $scope.noticias.splice(index,1);
+    }
 })
 
 .controller('detalleCtrl',function($scope, $stateParams, Movies, $ionicHistory,$sce){

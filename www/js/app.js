@@ -88,6 +88,20 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     });
   }
   
+  function buscarNoticias(callback) {
+    var url2='https://api.tviso.com/auth_token?id_api=3488&secret=zaWV7a7pbtwaChbVAqaC';
+    $http.get(url2).success(function(data2) {
+      console.log(JSON.stringify(data2));
+      
+      var url='https://api.tviso.com/news/last/movies?auth_token='+data2.auth_token;
+      $http.get(url).success(function(data) {
+      console.log(JSON.stringify(data));
+      callback(data.results);
+    });
+    });
+    
+  }
+  
   /*function pagSig(callback) {
       pagAct++;
       console.log("-----------"+pagAct); 
@@ -103,6 +117,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     estr: getEstrenos,
     trai: getTrailers,
     you: buscarTrailers,
+    not: buscarNoticias,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);
@@ -137,8 +152,9 @@ https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=fast&r
 tviso para noticias
 secret zaWV7a7pbtwaChbVAqaC
 app id 3488
-auth token dcccdb2ccec9e552cb62ecb576004a9c
+auth token 280097e0610e983c377adcfbf61e18e0
 https://developers.tviso.com/
+https://api.tviso.com/auth_token?id_api=3488&secret=zaWV7a7pbtwaChbVAqaC
 https://api.tviso.com/news/last/movies?auth_token=dcccdb2ccec9e552cb62ecb576004a9c
 https://api.tviso.com/news/last/movies?auth_token=dcccdb2ccec9e552cb62ecb576004a9c&page=2
 https://api.tviso.com/news/item?auth_token=dcccdb2ccec9e552cb62ecb576004a9c&id=56d40239060f0e922f8b4567
