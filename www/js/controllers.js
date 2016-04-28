@@ -67,9 +67,9 @@ angular.module('app.controllers', [])
             $scope.noticias = data;
         });
     }
-    $scope.swipe=function(index){
+    /*$scope.swipe=function(index){
         $scope.noticias.splice(index,1);
-    }
+    }*/
 })
 
 .controller('detalleCtrl',function($scope, $stateParams, Movies, $ionicHistory,$sce){
