@@ -159,3 +159,11 @@ https://api.tviso.com/news/last/movies?auth_token=dcccdb2ccec9e552cb62ecb576004a
 https://api.tviso.com/news/last/movies?auth_token=dcccdb2ccec9e552cb62ecb576004a9c&page=2
 https://api.tviso.com/news/item?auth_token=dcccdb2ccec9e552cb62ecb576004a9c&id=56d40239060f0e922f8b4567
 */
+/*http://noeticforce.com/best-material-design-web-frameworks
+http://materializecss.com/getting-started.html
+http://callemall.github.io/material-ui/#/components/list
+https://material.angularjs.org/latest/demo/list
+http://ui.lumapps.com/components/list
+http://nt1m.github.io/material-framework/#cards
+https://bootswatch.com/paper/
+ */
