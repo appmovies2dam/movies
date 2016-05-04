@@ -167,4 +167,5 @@ http://ui.lumapps.com/components/list
 http://nt1m.github.io/material-framework/#cards
 https://bootswatch.com/paper/
 https://material.angularjs.org/latest/
+https://www.airpair.com/angularjs/posts/material-design-with-angularjs
  */
