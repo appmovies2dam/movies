@@ -168,4 +168,9 @@ http://nt1m.github.io/material-framework/#cards
 https://bootswatch.com/paper/
 https://material.angularjs.org/latest/
 https://www.airpair.com/angularjs/posts/material-design-with-angularjs
+https://angularjs4u.com/angularjs2/20-angularjs-ionic-themes-plugins-2016/
+http://www.themezy.com/free-website-templates/184-expose-responsive-bootstrap-template
+http://webdesignledger.com/premium-bootstrap-themes-templates/
+http://www.designsave.net/2015/06/free-angularjs-boostrap-templates.html
+http://themesforangular.com/7-fantastic-free-angularjs-templates/
  */
