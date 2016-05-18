@@ -99,7 +99,19 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       callback(data.results);
     });
     });
-    
+  }
+  
+  function detalleNoticia(not,callback) {
+    var url2='https://api.tviso.com/auth_token?id_api=3488&secret=zaWV7a7pbtwaChbVAqaC';
+    $http.get(url2).success(function(data2) {
+      console.log(JSON.stringify(data2));
+      
+      var url='https://api.tviso.com/news/item?auth_token='+data2.auth_token+'&id='+not;
+      $http.get(url).success(function(data) {
+      console.log(JSON.stringify(data));
+      callback(data.results);
+    });
+    });
   }
   
   /*function pagSig(callback) {
@@ -118,6 +130,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     trai: getTrailers,
     you: buscarTrailers,
     not: buscarNoticias,
+    det: detalleNoticia,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);

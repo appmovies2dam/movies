@@ -81,6 +81,12 @@ angular.module('app.routes', [])
       templateUrl: 'templates/detallePelicula.html',
       controller: 'detalleCtrl'
   })
+  
+  .state('detalleNoticia', {
+      url: '/detalleNoticia/:idn',
+      templateUrl: 'templates/detalleNoticia.html',
+      controller: 'detalleNoticiaCtrl'
+  })
 
 $urlRouterProvider.otherwise('/side-menu21/inicio')
 

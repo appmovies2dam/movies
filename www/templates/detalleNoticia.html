@@ -1,0 +1,24 @@
+<ion-view title="Detalles pelicula">
+<ion-content overflow-scroll="true" padding="true" class="has-header">
+  <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="volver()">
+    <b>Volver a la lista</b>
+  </a>
+  <div class="list card">
+    <div class="item item-avatar">
+      <img ng-src="{{noticia.author.img_user}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
+      <h2>{{noticia.title}}</h2>
+      <p>Autor: {{noticia.author.full_name}}</p>
+    </div>
+
+    <div class="item item-body">
+        <img class="full-image" ng-src="https://img.tviso.com/{{noticia.image.country}}/notice/w150{{noticia.image.notice}}" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';"/>
+        <p>{{noticia.text}}</p>
+        <p>
+            <a class="subdued">Visitas: <strong>{{noticia.views}}</strong></a>
+            <a class="subdued">Votos totales: <strong>{{noticia.total_votes}}</strong></a>  
+        </p>
+    </div>
+    
+  </div>
+</ion-content>
+</ion-view>

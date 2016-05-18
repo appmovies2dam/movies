@@ -99,3 +99,15 @@ angular.module('app.controllers', [])
   }
   
 })
+
+.controller('detalleNoticiaCtrl',function($scope, $stateParams, Movies, $ionicHistory){
+    Movies.det($stateParams.idn, function(noti) {
+    $scope.noticia = noti;
+    console.log(noticia.title);
+  });
+  
+  $scope.volver = function(){
+    $ionicHistory.goBack();
+  }
+  
+})
