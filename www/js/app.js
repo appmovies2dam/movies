@@ -187,3 +187,8 @@ http://webdesignledger.com/premium-bootstrap-themes-templates/
 http://www.designsave.net/2015/06/free-angularjs-boostrap-templates.html
 http://themesforangular.com/7-fantastic-free-angularjs-templates/
  */
+/*
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.387675, -5.960011&radius=250&types=movie_theater&key=AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc
+https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJjQijjdtuEg0Rq3saDqIT_UE&key=AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc
+https://google.es/maps/place/cine+los+arcos/@37.3883807,-5.961043199999999
+*/
