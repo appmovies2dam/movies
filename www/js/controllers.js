@@ -32,6 +32,22 @@ angular.module('app.controllers', [])
 })
    
 .controller('cinesCercanosCtrl', function($scope,$cordovaGeolocation) {
+    if (window.cordova) {
+        cordova.plugins.diagnostic.isGpsLocationEnabled(function(enabled) {
+            //console.log("Location is " + (enabled ? "enabled" : "disabled"));
+            if(enabled==true){
+                console.log("GPS activado");
+            }
+            else{
+                console.log("GPS desactivado");
+                alert("El GPS esta desactivado por favor activelo para poder buscar cines cercanos");
+                //cordova.plugins.diagnostic.switchToLocationSettings(); //abre la configuracion del gps en el movil
+            }
+        cordova.exec();
+    }, function(error) {
+        console.log("The following error occurred: " + error);
+    });
+    
     /*var posOptions = {timeout: 10000, enableHighAccuracy: false};
     $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
           var lat  = position.coords.latitude
@@ -41,13 +57,7 @@ angular.module('app.controllers', [])
           console.log('--->'+error);
         // error
     });*/
-    if (window.cordova) {
-        cordova.plugins.diagnostic.isGpsLocationEnabled(function(enabled) {
-        console.log("Location is " + (enabled ? "enabled" : "disabled"));
-        cordova.plugins.diagnostic.switchToLocationSettings();
-    }, function(error) {
-        console.log("The following error occurred: " + error);
-    });
+    
 }
 })
       
