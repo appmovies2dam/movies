@@ -31,8 +31,24 @@ angular.module('app.controllers', [])
     }
 })
    
-.controller('cinesCercanosCtrl', function($scope) {
-
+.controller('cinesCercanosCtrl', function($scope,$cordovaGeolocation) {
+    /*var posOptions = {timeout: 10000, enableHighAccuracy: false};
+    $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+          var lat  = position.coords.latitude
+          var long = position.coords.longitude
+          console.log(lat + " --- " + long);
+      }, function(error) {
+          console.log('--->'+error);
+        // error
+    });*/
+    if (window.cordova) {
+        cordova.plugins.diagnostic.isGpsLocationEnabled(function(enabled) {
+        console.log("Location is " + (enabled ? "enabled" : "disabled"));
+        cordova.plugins.diagnostic.switchToLocationSettings();
+    }, function(error) {
+        console.log("The following error occurred: " + error);
+    });
+}
 })
       
 .controller('trailersCtrl', function($scope,Movies,$sce) {
