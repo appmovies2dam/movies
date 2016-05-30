@@ -114,6 +114,23 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     });
   }
   
+  function cinesCercanos(lat,long,callback) {
+    //cambiar radio de busqueda
+    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat+','+long+'&radius=25000&types=movie_theater&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4';
+    $http.get(url).success(function(data) {
+      console.log(JSON.stringify(data));
+      callback(data.results);
+    });
+  }
+  
+  function detalleCine(id,callback) {   
+    var url='https://maps.googleapis.com/maps/api/place/details/json?placeid=+'+id+'&key=AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc';
+    $http.get(url).success(function(data) {
+      console.log(JSON.stringify(data));
+      callback(data.results);
+    });
+  }
+  
   /*function pagSig(callback) {
       pagAct++;
       console.log("-----------"+pagAct); 
@@ -131,6 +148,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     you: buscarTrailers,
     not: buscarNoticias,
     det: detalleNoticia,
+    cin: cinesCercanos,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);

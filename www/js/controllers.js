@@ -31,34 +31,36 @@ angular.module('app.controllers', [])
     }
 })
    
-.controller('cinesCercanosCtrl', function($scope,$cordovaGeolocation) {
+.controller('cinesCercanosCtrl', function($scope,$cordovaGeolocation,Movies) {
     if (window.cordova) {
         cordova.plugins.diagnostic.isGpsLocationEnabled(function(enabled) {
-            //console.log("Location is " + (enabled ? "enabled" : "disabled"));
             if(enabled==true){
-                console.log("GPS activado");
+                var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+                    var lat  = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    Movies.cin(lat,long,function(maps){
+                        $scope.cines=maps;
+                    });
+                    console.log("GPS activado");
+                    console.log("ubicacion--> "+lat + "," + long);
+                }, function(error) {
+                    console.log('--->'+error);
+                });
             }
             else{
                 console.log("GPS desactivado");
-                alert("El GPS esta desactivado por favor activelo para poder buscar cines cercanos");
-                //cordova.plugins.diagnostic.switchToLocationSettings(); //abre la configuracion del gps en el movil
+                alert("El GPS esta desactivado por favor activelo y reinicie la aplicacion para poder buscar cines cercanos");
+                cordova.plugins.diagnostic.switchToLocationSettings(); //abre la configuracion del gps en el movil
             }
-        cordova.exec();
-    }, function(error) {
-        console.log("The following error occurred: " + error);
-    });
+        }, function(error) {
+            console.log("Error: " + error);
+        });
+    }
     
-    /*var posOptions = {timeout: 10000, enableHighAccuracy: false};
-    $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-          var lat  = position.coords.latitude
-          var long = position.coords.longitude
-          console.log(lat + " --- " + long);
-      }, function(error) {
-          console.log('--->'+error);
-        // error
-    });*/
-    
-}
+    $scope.borrar = function(n) {
+        $scope.cines=null;
+    }
 })
       
 .controller('trailersCtrl', function($scope,Movies,$sce) {
