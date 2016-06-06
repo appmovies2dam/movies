@@ -61,6 +61,13 @@ angular.module('app.controllers', [])
     $scope.borrar = function(n) {
         $scope.cines=null;
     }
+    
+    $scope.appMaps=function(id){
+        Movies.detCin(id, function(ubi) {
+            cordova.plugins.miplugin.appNativa(ubi.url); 
+        });
+    }
+    
 })
       
 .controller('trailersCtrl', function($scope,Movies,$sce) {
@@ -124,6 +131,10 @@ angular.module('app.controllers', [])
   
   $scope.volver = function(){
     $ionicHistory.goBack();
+  }
+  
+  $scope.appYou=function(url){
+      cordova.plugins.miplugin.appNativa(url);
   }
   
 })

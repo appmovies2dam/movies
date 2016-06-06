@@ -5,7 +5,7 @@
                 <a ng-repeat="cine in cines" href="" id="{{cine.place_id}}"  class="item item-button-right">
                     <h2>{{cine.name}}</h2>
                     <p>{{cine.vicinity}}</p>
-                    <button class="button button-positive">
+                    <button class="button button-positive" ng-click="appMaps('{{cine.place_id}}')">
                         <i class="icon ion-location"></i>
                     </button>
                 </a>

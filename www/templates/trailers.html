@@ -13,6 +13,7 @@
             <ion-item  ng-hide="you==null" class="list card">
                 <p>
                     <a ng-repeat="yo in you" class="item">
+                        <!--<img ng-src="{{yo.snippet.thumbnails.medium.url}}" />-->
                         <iframe id="ytplayer" type="text/html"  ng-src="{{yo.id.videoId}}" frameborder="0"/>
                     </a>
                 </p>

@@ -81,7 +81,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   
   function buscarTrailers(busq,callback) {
     //muestra solamente 10 resultados
-    var url='https://www.googleapis.com/youtube/v3/search?part=id&maxResults=10&q=trailer%20+'+busq+'&regionCode=es&type=video&videoType=any&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4';
+    //var url='https://www.googleapis.com/youtube/v3/search?part=id&maxResults=10&q=trailer%20+'+busq+'&regionCode=es&type=video&videoType=any&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4';
+    var url='https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=trailer%20+'+busq+'&regionCode=es&type=video&videoType=any&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4';
     $http.get(url).success(function(data) {
       console.log(JSON.stringify(data));
       callback(data.items);
@@ -124,10 +125,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   }
   
   function detalleCine(id,callback) {   
-    var url='https://maps.googleapis.com/maps/api/place/details/json?placeid=+'+id+'&key=AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc';
+    var url='https://maps.googleapis.com/maps/api/place/details/json?placeid='+id+'&key=AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc';
+    console.error(url);
     $http.get(url).success(function(data) {
       console.log(JSON.stringify(data));
-      callback(data.results);
+      callback(data.result);
     });
   }
   
@@ -149,6 +151,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     not: buscarNoticias,
     det: detalleNoticia,
     cin: cinesCercanos,
+    detCin: detalleCine,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);

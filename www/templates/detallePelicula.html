@@ -26,7 +26,7 @@
           </a>
         </p>
         <p ng-hide="asdf==null">
-          <iframe ng-repeat="asd in asdf" id="ytplayer" type="text/html"  ng-src="{{asd.key}}" frameborder="0"/>
+          <iframe ng-click="appYou('{{asd.key}}')" ng-repeat="asd in asdf" id="ytplayer" type="text/html" disabled  ng-src="{{asd.key}}" frameborder="0"/>
         </p>
         
     </div>
