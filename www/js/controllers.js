@@ -108,9 +108,8 @@ angular.module('app.controllers', [])
 })
 
 .controller('detalleCtrl',function($scope, $stateParams, Movies, $ionicHistory,$sce){
-    Movies.find($stateParams.movieid, function(movie) {
+  Movies.find($stateParams.movieid, function(movie) {
     $scope.movie = movie;
-    console.log(movie.original_title);
   });
   
   Movies.trai($stateParams.movieid, function(asd) {
@@ -121,8 +120,8 @@ angular.module('app.controllers', [])
           for (var key in asd) {
               if (asd.hasOwnProperty(key)) {
                   var element = asd[key];
-                  element.key=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+element.key);
-                  //element.key=$sce.trustAsResourceUrl('https://www.youtube.com/v/'+element.key);
+                  element.iframe=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+element.key);
+                  //element.iframe=$sce.trustAsResourceUrl('https://www.youtube.com/v/'+element.key);
               }
           }
           $scope.asdf=asd;

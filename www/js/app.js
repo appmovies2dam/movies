@@ -132,6 +132,14 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       callback(data.result);
     });
   }
+
+  function detalleTrailer(id,callback){
+    var url="https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+id+"&key=AIzaSyD2n2mudoIN3Bjem1-Nj10Oio6CGwnMgy4";
+    $http.get(url).success(function(data) {
+      console.log(JSON.stringify(data));
+      callback(data.items[0].snippet.thumbnails.medium.url);
+    });
+  }
   
   /*function pagSig(callback) {
       pagAct++;
@@ -152,6 +160,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     det: detalleNoticia,
     cin: cinesCercanos,
     detCin: detalleCine,
+    detTrai: detalleTrailer,
     //sig: pagSig,
     find: function(name, callback) {
       console.log(name);

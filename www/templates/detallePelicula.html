@@ -21,12 +21,22 @@
           <a ng-show="asdf==null" class="item item-icon-left assertive">
             <i class="icon ion-close-round"></i><b>No hay trailers disponibles</b>
           </a>
-          <a href="youtube://" ng-hide="asdf==null" class="item item-icon-left assertive">
+          <a ng-hide="asdf==null" class="item item-icon-left assertive">
             <i class="icon ion-social-youtube-outline"></i><b>Trailers disponibles</b>
           </a>
         </p>
+        <!--<iframe ng-click="appYou('{{asd.key}}')" ng-repeat="asd in asdf" id="ytplayer" type="text/html" ng-src="{{asd.key}}" frameborder="0"/>-->
         <p ng-hide="asdf==null">
-          <iframe ng-click="appYou('{{asd.key}}')" ng-repeat="asd in asdf" id="ytplayer" type="text/html" disabled  ng-src="{{asd.key}}" frameborder="0"/>
+          <div ng-repeat="asd in asdf" class="list card">
+            <div class="item item-image">
+              <img ng-src="https://i.ytimg.com/vi/{{asd.key}}/mqdefault.jpg" />
+            </div>
+
+            <a class="item" ng-click="appYou('{{asd.iframe}}')">
+              <i class="icon ion-social-youtube-outline assertive"></i>
+              <b>&nbsp;&nbsp;Ver Trailer {{$index+1}} en youtube</b>
+            </a>
+          </div>
         </p>
         
     </div>
